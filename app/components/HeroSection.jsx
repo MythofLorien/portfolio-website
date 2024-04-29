@@ -1,6 +1,6 @@
 "use client";
-import React from 'react'
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 import { TypeAnimation } from 'react-type-animation';
 
 
@@ -33,11 +33,11 @@ const HeroSection = () => {
                             repeat={Infinity}
                         />
                     </h1>
-                    <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl ">Hi there! My name is Lara but my co-workers and friends call me Myth !<br /> I&apos;m a tea enthusiast, Front-End Developer, UX/UI researcher and Web Disigner. </p>
+                    <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl ">Hi there! My name is Lara but my co-workers and friends call me Myth !<br /> I&apos;m a tea enthusiast, Front-End Developer, UX/UI researcher and Web Designer. </p>
                     <div className='font-semibold'>
                         <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-orange-500 via-yellow-500 to-green-500 hover:bg-slate-200 text-white">Hire Me</button>
                         <button className="px-1 py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-orange-500 via-yellow-500 to-green-500 hover:bg-slate-800 text-white mt-3">
-                            <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">Download CV
+                            <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2"> Download CV
                             </span>
 
                         </button>
