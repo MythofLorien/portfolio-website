@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React from "react";
 import Image from "next/image";
@@ -33,6 +32,7 @@ const HeroSection = () => {
 
                             repeat={Infinity}
                         />
+
                     </h1>
                     <p className="text-[#ADB7BE] text-base sm:text-lg mb-6 lg:text-xl ">Hi there! My name is Lara but my co-workers and friends call me Myth !<br /> I&apos;m a tea enthusiast, Front-End Developer, UX/UI researcher and Web Designer. </p>
                     <div className='font-semibold'>
