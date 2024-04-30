@@ -20,7 +20,7 @@ const projectsData = [
         id: 2,
         title: "WordPress e-commerce",
         description:
-            "Second update for Finara Yachts, looking for a new and fresh interface in order to offer the new services only for high quality clients",
+            "Second update for Finara Yachts, looking for a new and fresh interface.",
         image: "images/projects/projecto04.png",
         tag: ["All", "WordPress"],
         gitUrl: "/",
@@ -30,7 +30,7 @@ const projectsData = [
         id: 3,
         title: "React e-commerce",
         description:
-            "Project designed ready to be deployed. I've been working with multiple wine brands always helping to achieve upgrades on the brands",
+            "Project designed ready to be deployed. Experience with multiple Wine Brands",
         image: "images/projects/project08.png",
         tag: ["All", "React"],
         gitUrl: "/",
@@ -61,7 +61,7 @@ const ProjectsSection = () => {
             <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
                 My Projects
             </h2>
-            <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+            <div className="text-white flex flex-wrap justify-center items-center gap-2 py-6">
                 <ProjectTag
                     onClick={handleTagChange}
                     name="All"
