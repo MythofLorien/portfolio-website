@@ -1,7 +1,9 @@
 "use client";
-import React from "react";
+import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
+import ProjectTag from "./ProjectTag";
 import { motion, useInView } from "framer-motion";
+
 
 const projectsData = [
     {
@@ -10,6 +12,9 @@ const projectsData = [
         description:
             "First update of a basic html page to a new brand face and work-page",
         image: "images/projects/project01.png",
+        tag: ["All", "JavaScript"],
+        gitUrl: "https://github.com/MythofLorien/PorjectBarcosMezquida",
+        previewUrl: "https://porject-boats.vercel.app/",
     },
     {
         id: 2,
@@ -17,6 +22,9 @@ const projectsData = [
         description:
             "Second update for Finara Yachts, looking for a new and fresh interface in order to offer the new services only for high quality clients",
         image: "images/projects/projecto04.png",
+        tag: ["All", "WordPress"],
+        gitUrl: "/",
+        previewUrl: "https://finara.com.ar/"
     },
     {
         id: 3,
@@ -24,30 +32,78 @@ const projectsData = [
         description:
             "Project designed ready to be deployed. I've been working with multiple wine brands always helping to achieve upgrades on the brands",
         image: "images/projects/project08.png",
+        tag: ["All", "React"],
+        gitUrl: "/",
+        previewUrl: "https://www.figma.com/proto/gySMUZz0mSBj8LPRIjUd3X/FDLVI-web-Maqueta?node-id=4-138&starting-point-node-id=4%3A138",
     },
 ];
 
 const ProjectsSection = () => {
+    const [tag, setTag] = useState("All");
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true });
+
+    const handleTagChange = (newTag) => {
+        setTag(newTag);
+    };
+
+    const filteredProjects = projectsData.filter((project) =>
+        project.tag.includes(tag)
+    );
+
+    const cardVariants = {
+        initial: { y: 50, opacity: 0 },
+        animate: { y: 0, opacity: 1 },
+    };
+
     return (
-        <>
+        <section id="projects">
             <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
                 My Projects
             </h2>
-            <div className="flex flex-nowrap justify-center">
-                {projectsData.map((project) => (
-                    <div
-                        key={project.id}
-                        className="w-64 h-96 overflow-hidden rounded-t-xl m-4 md:w-1/3 md:mx-2"
+            <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
+                <ProjectTag
+                    onClick={handleTagChange}
+                    name="All"
+                    isSelected={tag === "All"}
+                />
+                <ProjectTag
+                    onClick={handleTagChange}
+                    name="React"
+                    isSelected={tag === "React"}
+                />
+                <ProjectTag
+                    onClick={handleTagChange}
+                    name="JavaScript"
+                    isSelected={tag === "Javascript"}
+                />
+                <ProjectTag
+                    onClick={handleTagChange}
+                    name="WordPress"
+                    isSelected={tag === "Wordpress"}
+                />
+            </div>
+            <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
+                {filteredProjects.map((project, index) => (
+                    <motion.li
+                        key={index}
+                        variants={cardVariants}
+                        initial="initial"
+                        animate={isInView ? "animate" : "initial"}
+                        transition={{ duration: 0.3, delay: index * 0.4 }}
                     >
                         <ProjectCard
+                            key={project.id}
                             title={project.title}
                             description={project.description}
                             imgUrl={project.image}
+                            gitUrl={project.gitUrl}
+                            previewUrl={project.previewUrl}
                         />
-                    </div>
+                    </motion.li>
                 ))}
-            </div>
-        </>
+            </ul>
+        </section>
     );
 };
 
